@@ -13,20 +13,34 @@ export default {
 		},
 		extend: {
 			colors: {
-				purple: '#A729F5',
-				green: '#26D782',
-				red: '#EE5454',
-				neutral: {
-					100: '#313E51',
-					200: '#3B4D66',
-					300: '#626C7F',
-					400: '#ABC1E1',
-					500: '#F4F6FA',
-					600: '#ffffff',
+				'd-purple': '#A729F5',
+				'd-green': '#26D782',
+				'd-red': '#EE5454',
+				'd-neutral': {
+					600: '#313E51',
+					500: '#3B4D66',
+					400: '#626C7F',
+					300: '#ABC1E1',
+					200: '#F4F6FA',
+					100: '#ffffff',
 				},
 			},
 			fontFamily: {
 				sans: ['Rubik', 'sans-serif'],
+			},
+			backgroundImage: {
+				'mobile-light':
+					"url('./assets/images/pattern-background-mobile-light.svg')",
+				'mobile-dark':
+					"url('./assets/images/pattern-background-mobile-dark.svg')",
+				'tablet-light':
+					"url('./assets/images/pattern-background-tablet-light.svg')",
+				'tablet-dark':
+					"url('./assets/images/pattern-background-tablet-dark.svg')",
+				'desktop-light':
+					"url('./assets/images/pattern-background-desktop-light.svg')",
+				'desktop-dark':
+					"url('./assets/images/pattern-background-desktop-dark.svg')",
 			},
 		},
 	},
