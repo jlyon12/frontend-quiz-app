@@ -8,7 +8,7 @@ export default {
 			sm: ['1.25rem', { lineHeight: '1.5', fontWeight: 400 }],
 			base: ['1.5rem', { lineHeight: '1.5', fontWeight: 400 }],
 			md: ['1.75rem', { lineHeight: '1', fontWeight: 500 }],
-			lg: ['2rem', { lineHeight: '1', fontWeight: 500 }],
+			lg: ['2.25rem', { lineHeight: '1.2', fontWeight: 500 }],
 			xl: ['4rem', { lineHeight: '1', fontWeight: 300 }],
 			'2xl': ['9rem', { lineHeight: '1', fontWeight: 500 }],
 		},
