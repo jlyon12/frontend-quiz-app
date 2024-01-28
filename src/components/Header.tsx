@@ -8,7 +8,7 @@ import Switch from './ui/Switch';
 const Header = () => {
 	const { darkMode, toggleDarkMode } = useDarkModeContext();
 	return (
-		<header className=" flex h-10 items-center justify-between   ">
+		<header className=" flex h-10 items-center justify-between    ">
 			<div></div>
 			<div className="flex items-center gap-[8px] md:gap-4">
 				{darkMode ? (

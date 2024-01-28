@@ -1,5 +1,7 @@
+import StartPage from './pages/StartPage';
+
 function App() {
-	return <div></div>;
+	return <StartPage />;
 }
 
 export default App;
