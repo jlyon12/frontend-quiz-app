@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+	darkMode: 'class',
 	theme: {
 		fontSize: {
 			sm: ['1.25rem', { lineHeight: '1.5', fontWeight: 400 }],
