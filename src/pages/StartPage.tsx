@@ -38,6 +38,7 @@ const StartPage = () => {
 						icon={iconElementsObject[q.title]}
 						// TODO: Find a way to avoid type assertion. Need to map quiz title to icon color. Enum possibly a poor solution. All types and keys are known and are not based on dynamic data so this is OK for now.
 						iconBgHexColor={IconColors[q.title as keyof typeof IconColors]}
+						handleClick={() => null}
 					/>
 				))}
 			</div>
