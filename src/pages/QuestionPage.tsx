@@ -7,9 +7,14 @@ import CorrectIcon from '../assets/images/icon-correct.svg?react';
 import IncorrectIcon from '../assets/images/icon-incorrect.svg?react';
 
 import QuizControl from '../components/QuizControl';
-import Button from '../components/ui/Button';
+import Button from '../components/Button';
+import { QuizTopic } from '../types';
 interface Props {
-	activeQuiz: 'HTML' | 'CSS' | 'Javascript' | 'Accessibility';
+	activeQuiz: QuizTopic;
+	questionNumber: number;
+	setActiveQuiz: React.Dispatch<React.SetStateAction<QuizTopic | null>>;
+	setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
+	setCorrectAnswers: React.Dispatch<React.SetStateAction<number>>;
 }
 
 enum OptionLetter {
@@ -19,13 +24,16 @@ enum OptionLetter {
 	D,
 }
 
-const QuestionPage = ({ activeQuiz }: Props) => {
+const QuestionPage = ({
+	activeQuiz,
+	questionNumber,
+	setCorrectAnswers,
+	setQuestionNumber,
+}: Props) => {
 	const quizData = quizzes.filter((q) => q.title === activeQuiz)[0];
 	const [error, setError] = useState<boolean | null>(null);
-	const [questionNumber, setQuestionNumber] = useState(1);
 	const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 	const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-	const [correctAnswers, setCorrectAnswers] = useState<number>(0);
 	const { question, options, answer } = quizData.questions[questionNumber - 1];
 
 	const handleAnswerSelect = (option: string) => {
@@ -40,13 +48,12 @@ const QuestionPage = ({ activeQuiz }: Props) => {
 		}
 		const answerIsCorrect = selectedAnswer === answer;
 		if (answerIsCorrect) {
-			setCorrectAnswers(correctAnswers + 1);
+			setCorrectAnswers((n) => n + 1);
 		}
 		setIsSubmitted(true);
 	};
 
 	const handleNextQuestion = () => {
-		if (questionNumber >= 10) return;
 		setQuestionNumber(questionNumber + 1);
 		setIsSubmitted(false);
 		setSelectedAnswer(null);
@@ -112,10 +119,14 @@ const QuestionPage = ({ activeQuiz }: Props) => {
 						resultIcon={generateResultIcon(o)}
 					/>
 				))}
+
 				{!isSubmitted ? (
 					<Button label="Submit Answer" handleClick={handleSubmit} />
 				) : (
-					<Button label="Next Question" handleClick={handleNextQuestion} />
+					<Button
+						label={questionNumber < 10 ? 'Next Question' : 'Show Results'}
+						handleClick={handleNextQuestion}
+					/>
 				)}
 				{error && (
 					<div className="mx-auto flex items-center gap-2 text-[18px] text-d-red dark:text-d-neutral-100 md:text-base">

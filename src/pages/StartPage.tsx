@@ -4,22 +4,38 @@ import HtmlIcon from '../assets/images/icon-html.svg?react';
 import CssIcon from '../assets/images/icon-css.svg?react';
 import JavaScriptIcon from '../assets/images/icon-js.svg?react';
 import AccessibilityIcon from '../assets/images/icon-accessibility.svg?react';
+import { QuizTopic } from '../types';
 
-const iconElementsObject: { [key: string]: React.ReactNode } = {
-	HTML: <HtmlIcon />,
-	CSS: <CssIcon />,
-	JavaScript: <JavaScriptIcon />,
-	Accessibility: <AccessibilityIcon />,
+const generateIcon = (topic: QuizTopic) => {
+	switch (topic) {
+		case 'Accessibility':
+			return <AccessibilityIcon />;
+		case 'CSS':
+			return <CssIcon />;
+		case 'JavaScript':
+			return <JavaScriptIcon />;
+		case 'HTML':
+			return <HtmlIcon />;
+	}
+};
+const generateIconBgColor = (topic: QuizTopic) => {
+	switch (topic) {
+		case 'Accessibility':
+			return '#F6E7FF';
+		case 'CSS':
+			return '#E0FDEF';
+		case 'JavaScript':
+			return '#EBF0FF';
+		case 'HTML':
+			return '#FFF1E9';
+	}
 };
 
-enum IconColors {
-	HTML = '#FFF1E9',
-	CSS = '#E0FDEF',
-	JavaScript = '#EBF0FF',
-	Accessibility = '#F6E7FF',
+interface Props {
+	setActiveQuiz: React.Dispatch<React.SetStateAction<QuizTopic | null>>;
 }
 
-const StartPage = () => {
+const StartPage = ({ setActiveQuiz }: Props) => {
 	return (
 		<>
 			<div>
@@ -35,10 +51,9 @@ const StartPage = () => {
 				{quizzes.map((q) => (
 					<QuizControl
 						text={q.title}
-						icon={iconElementsObject[q.title]}
-						// TODO: Find a way to avoid type assertion. Need to map quiz title to icon color. Enum possibly a poor solution. All types and keys are known and are not based on dynamic data so this is OK for now.
-						iconBgHexColor={IconColors[q.title as keyof typeof IconColors]}
-						handleClick={() => null}
+						icon={generateIcon(q.title)}
+						iconBgHexColor={generateIconBgColor(q.title)}
+						handleClick={() => setActiveQuiz(q.title)}
 					/>
 				))}
 			</div>

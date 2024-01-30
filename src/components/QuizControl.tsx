@@ -29,7 +29,7 @@ const QuizControl = (props: QuizControlProps) => {
 			style={{
 				border: borderColor ? borderColor : '',
 			}}
-			className="flex w-full items-center justify-between gap-4 rounded-xl  bg-d-neutral-100 p-3 shadow-md dark:bg-d-neutral-500 md:gap-8 md:rounded-3xl xl:p-[18px_20px]"
+			className="flex w-full items-center gap-4 rounded-xl  bg-d-neutral-100 p-3 shadow-md dark:bg-d-neutral-500 md:gap-8 md:rounded-3xl xl:p-[18px_20px]"
 		>
 			<div
 				style={{
@@ -45,10 +45,10 @@ const QuizControl = (props: QuizControlProps) => {
 				{icon}
 			</div>
 
-			<p className="text-left text-[18px] font-medium text-d-neutral-600 dark:text-d-neutral-100 md:text-[28px]">
+			<p className=" text-left text-[18px] font-medium text-d-neutral-600 dark:text-d-neutral-100 md:text-[28px]">
 				{text}
 			</p>
-			<div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg p-1 text-[28px] text-d-neutral-400 md:h-14 md:w-14 md:rounded-xl md:p-2">
+			<div className="ml-auto flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg p-1 text-[28px] text-d-neutral-400 md:h-14 md:w-14 md:rounded-xl md:p-2">
 				{resultIcon}
 			</div>
 		</button>

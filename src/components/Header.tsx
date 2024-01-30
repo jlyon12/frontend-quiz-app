@@ -4,7 +4,7 @@ import SunIconDark from '../assets/images/icon-sun-dark.svg?react';
 import SunIconLight from '../assets/images/icon-sun-light.svg?react';
 
 import useDarkModeContext from '../hooks/useDarkModeContext';
-import Switch from './ui/Switch';
+import Switch from './Switch';
 const Header = () => {
 	const { darkMode, toggleDarkMode } = useDarkModeContext();
 	return (
