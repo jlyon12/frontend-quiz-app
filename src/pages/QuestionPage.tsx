@@ -5,7 +5,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 import quizzes from '../data/quizzes';
 import CorrectIcon from '../assets/images/icon-correct.svg?react';
 import IncorrectIcon from '../assets/images/icon-incorrect.svg?react';
-
+import QuizProgressBar from '../components/QuizProgressBar';
 import QuizControl from '../components/QuizControl';
 import Button from '../components/Button';
 import { QuizTopic } from '../types';
@@ -99,10 +99,12 @@ const QuestionPage = ({
 
 	return (
 		<>
-			<div className="flex flex-col-reverse justify-end gap-4 md:gap-[27px]">
-				<h1 className=" text-[20px] font-medium leading-[1.2] text-d-neutral-600 dark:text-d-neutral-100 md:text-[36px] md:text-lg">
+			<div className="flex flex-col-reverse justify-end xl:max-h-[452px]">
+				<QuizProgressBar questionNumber={questionNumber} />
+				<h1 className=" mb-6 mt-4 text-[20px] font-medium leading-[1.2] text-d-neutral-600 dark:text-d-neutral-100 md:mb-10 md:mt-[27px] md:text-[36px] md:text-lg xl:mb-auto">
 					{question}
 				</h1>
+
 				<p className="!text-[14px] text-sm italic text-d-neutral-400 dark:text-d-neutral-300">
 					Question {questionNumber} of 10
 				</p>
