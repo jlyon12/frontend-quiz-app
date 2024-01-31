@@ -29,7 +29,7 @@ const QuizControl = (props: QuizControlProps) => {
 			style={{
 				border: borderColor ? borderColor : '',
 			}}
-			className="flex w-full items-center gap-4 rounded-xl  bg-d-neutral-100 p-3 shadow-md dark:bg-d-neutral-500 md:gap-8 md:rounded-3xl xl:p-[18px_20px]"
+			className="flex w-full items-center gap-4 rounded-xl bg-d-neutral-100  p-3 shadow-md hover:bg-d-neutral-300 dark:bg-d-neutral-500 dark:hover:bg-d-neutral-300 md:gap-8 md:rounded-3xl xl:p-[18px_20px]"
 		>
 			<div
 				style={{

@@ -8,14 +8,7 @@ import IncorrectIcon from '../assets/images/icon-incorrect.svg?react';
 import QuizProgressBar from '../components/QuizProgressBar';
 import QuizControl from '../components/QuizControl';
 import Button from '../components/Button';
-import { QuizTopic } from '../types';
-interface Props {
-	activeQuiz: QuizTopic;
-	questionNumber: number;
-	setActiveQuiz: React.Dispatch<React.SetStateAction<QuizTopic | null>>;
-	setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
-	setCorrectAnswers: React.Dispatch<React.SetStateAction<number>>;
-}
+import useQuizContext from '../hooks/useQuizContext';
 
 enum OptionLetter {
 	A = 0,
@@ -24,12 +17,10 @@ enum OptionLetter {
 	D,
 }
 
-const QuestionPage = ({
-	activeQuiz,
-	questionNumber,
-	setCorrectAnswers,
-	setQuestionNumber,
-}: Props) => {
+const QuestionPage = () => {
+	const { activeQuiz, questionNumber, setCorrectAnswers, setQuestionNumber } =
+		useQuizContext();
+
 	const quizData = quizzes.filter((q) => q.title === activeQuiz)[0];
 	const [error, setError] = useState<boolean | null>(null);
 	const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -100,7 +91,7 @@ const QuestionPage = ({
 	return (
 		<>
 			<div className="flex flex-col-reverse justify-end xl:max-h-[452px]">
-				<QuizProgressBar questionNumber={questionNumber} />
+				<QuizProgressBar />
 				<h1 className=" mb-6 mt-4 text-[20px] font-medium leading-[1.2] text-d-neutral-600 dark:text-d-neutral-100 md:mb-10 md:mt-[27px] md:text-[36px] md:text-lg xl:mb-auto">
 					{question}
 				</h1>

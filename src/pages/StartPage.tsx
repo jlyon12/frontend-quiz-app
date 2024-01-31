@@ -5,6 +5,7 @@ import CssIcon from '../assets/images/icon-css.svg?react';
 import JavaScriptIcon from '../assets/images/icon-js.svg?react';
 import AccessibilityIcon from '../assets/images/icon-accessibility.svg?react';
 import { QuizTopic } from '../types';
+import useQuizContext from '../hooks/useQuizContext';
 
 const generateIcon = (topic: QuizTopic) => {
 	switch (topic) {
@@ -31,11 +32,8 @@ const generateIconBgColor = (topic: QuizTopic) => {
 	}
 };
 
-interface Props {
-	setActiveQuiz: React.Dispatch<React.SetStateAction<QuizTopic | null>>;
-}
-
-const StartPage = ({ setActiveQuiz }: Props) => {
+const StartPage = () => {
+	const { setActiveQuiz } = useQuizContext();
 	return (
 		<>
 			<div>
@@ -50,6 +48,7 @@ const StartPage = ({ setActiveQuiz }: Props) => {
 			<div className="  mt-10 flex flex-col gap-3  md:mt-16  md:gap-6 xl:mx-0 xl:mt-0 xl:max-w-none">
 				{quizzes.map((q) => (
 					<QuizControl
+						key={q.title}
 						text={q.title}
 						icon={generateIcon(q.title)}
 						iconBgHexColor={generateIconBgColor(q.title)}
